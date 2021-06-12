@@ -1,13 +1,14 @@
 import React from 'react';
 
-const User = ({ user, courses, full_name }) => {
+const User = ({ user, courses, fullName }) => {
   const { id } = user;
   return(
     <>
-      <div className="user-card">
-        <h1>{full_name}</h1>
+      {/* <div className="user-card"> */}
+        <h1>{fullName}</h1>
         <hr />
         <h6>Courses</h6>
+        <h2>{ courses.length <= 0 ? "No Courses" : ""}</h2>
         <ul>
            { courses.map((course) => (
               <li>
@@ -16,7 +17,7 @@ const User = ({ user, courses, full_name }) => {
             ))}
         </ul>
         <a href={`/users/${id}`} data-method="delete"> User delete</a>
-      </div>
+      {/* </div> */}
     </>
   );
 }

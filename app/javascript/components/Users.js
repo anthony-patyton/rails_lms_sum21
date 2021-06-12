@@ -1,16 +1,17 @@
 import React from 'react';
 
 const Users = ({ users }) => {
+  // const { first_name, last_name } = users
   return(
     <>
-    <h1>User</h1>
+    <h1>Users</h1>
     <a href="/users/new">Add User</a>
     <br />
-    <h2>{ users.length <= 0 ? "No Users" : ""}</h2>
+    <h2>{ users.length <= 0 ? "No Users" : "" }</h2> 
     {
-      users.map ((user) => (
+      users.map((user) => (
         <div>
-          <a href={`/users/${user.id}`}>{user.full_name}</a>
+          <a href={`/users/${user.id}`}>{user.first_name}</a>
         </div>
       ))
     }

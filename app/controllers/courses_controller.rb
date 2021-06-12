@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update]
+  before_action :set_course, only: [:show]
   
   def index
     @courses = Course.all
@@ -16,12 +16,11 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.new(course_params)
+    @course = Course.create(course_params)
     if @course.save
       redirect_to @course
     else
-      render :new
-      # render component: "CourseNew", props: { course: @course }
+      render component: "CourseNew", props: { course: @course }
     end
   end
 
@@ -33,7 +32,7 @@ class CoursesController < ApplicationController
     if @course.update(course_params)
       redirect_to @course
     else
-      render :new
+      render component: "CourseEdit", props: { course: @course }
     end
   end
 

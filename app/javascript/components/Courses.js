@@ -7,7 +7,7 @@ const Courses = ({ courses }) => {
       <a href="/courses/new">Add a Course</a>
       <br />
       <h2>{ courses.length <= 0 ? "No Courses": ""}</h2>
-      { courses.map((course) (
+      { courses.map((course) => (
         <div>
           <a href={`/courses/${course.id}`}>{ course.name }</a>
         </div>
